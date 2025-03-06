@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Chat Room</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Login Screen -->
+    <div
+      id="login-screen"
+      class="container d-flex justify-content-center align-items-center h-100"
+    >
+      <div class="login-container p-4 bg-white shadow rounded">
+        <h1 class="text-center mb-4">Chat Room</h1>
+        <form id="login-form">
+          <div class="mb-3">
+            <label for="username-input" class="form-label"
+              >Choose a username</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="username-input"
+              placeholder="Enter username"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Join Chat</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Chat Screen (hidden initially) -->
+    <div id="chat-screen" class="chat-container d-none">
+      <!-- Header -->
+      <header class="p-3 bg-primary text-white">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1 class="h5 mb-0">Chat Room</h1>
+          <div class="d-flex align-items-center">
+            <span class="connection-status me-2" id="connection-status"
+              >Disconnected</span
+            >
+            <small>Logged in as: <span id="username-display"></span></small>
+          </div>
+        </div>
+      </header>
+
+      <!-- Messages -->
+      <div id="messages-container" class="messages-container"></div>
+
+      <!-- Input Area -->
+      <div class="input-container">
+        <form id="message-form">
+          <div class="input-group">
+            <input
+              type="text"
+              id="message-input"
+              class="form-control"
+              placeholder="Type a message..."
+              required
+            />
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/chatroom.js"></script>
+  </body>
+</html>
