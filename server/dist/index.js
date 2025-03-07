@@ -27,7 +27,6 @@ wss.on("connection", function connection(ws) {
             console.log("received: %s", data);
         });
         ws.on("close", () => chatroom.removeUser(ws));
-        ws.send("something");
     });
 });
 const app = (0, express_1.default)();

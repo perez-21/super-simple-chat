@@ -59,11 +59,6 @@ function connectWebSocket() {
   // Listen for messages
   socket.addEventListener("message", function (event) {
     try {
-      // First message from server might be "something" (from your backend)
-      if (event.data === "something") {
-        return;
-      }
-
       const message = JSON.parse(event.data);
       displayMessage(message);
     } catch (error) {

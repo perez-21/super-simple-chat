@@ -20,7 +20,7 @@ export class Chatroom {
     user.socket.on("message", (data) => {
       const message = data.toString();
 
-      this.broadcast(user, message);
+      this.broadcast(message);
     });
   }
 
@@ -33,10 +33,9 @@ export class Chatroom {
     this.users = this.users.filter((user) => user.socket !== socket);
   }
 
-  broadcast(user: User, message: string) {
+  broadcast(message: string) {
     this.users.forEach((u, index, arr) => {
-      if (u.socket !== user.socket) u.socket.send(message);
+      u.socket.send(message);
     });
-    user.socket.send(message);
   }
 }

@@ -17,8 +17,6 @@ wss.on("connection", async function connection(ws) {
   });
 
   ws.on("close", () => chatroom.removeUser(ws));
-
-  ws.send("something");
 });
 
 const app = express();

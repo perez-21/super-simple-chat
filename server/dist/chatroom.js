@@ -12,7 +12,7 @@ class Chatroom {
     addMessageHandler(user) {
         user.socket.on("message", (data) => {
             const message = data.toString();
-            this.broadcast(user, message);
+            this.broadcast(message);
         });
     }
     removeUser(socket) {
@@ -23,12 +23,10 @@ class Chatroom {
         }
         this.users = this.users.filter((user) => user.socket !== socket);
     }
-    broadcast(user, message) {
+    broadcast(message) {
         this.users.forEach((u, index, arr) => {
-            if (u.socket !== user.socket)
-                u.socket.send(message);
+            u.socket.send(message);
         });
-        user.socket.send(message);
     }
 }
 exports.Chatroom = Chatroom;
